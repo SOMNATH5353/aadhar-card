@@ -1,0 +1,133 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #000;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.card-container {
+    perspective: 1500px;
+}
+
+.card {
+    width: 480px;
+    height: 320px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.4, 0.2, 0.2, 1);
+    cursor: pointer;
+    border-radius: 15px;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.3);
+}
+
+.card-front,
+.card-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    background: white;
+    border-radius: 15px;
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    box-sizing: border-box;
+    color: black;
+    overflow: hidden;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card.flip {
+    transform: rotateY(180deg);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #FF9933;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+}
+
+.details-container {
+    text-align: left;
+    line-height: 1.6;
+    margin-top: 10px;
+    word-wrap: break-word;
+}
+
+.details-container h2 {
+    margin: 0;
+    font-size: 24px;
+    color: black;
+    text-transform: uppercase;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.details-container p {
+    margin: 4px 0;
+    font-size: 15px;
+}
+
+.orange {
+    color: #FF9933;
+}
+
+.barcode {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 10px;
+}
+
+.barcode-line {
+    width: 4px;
+    height: 60px;
+    background: black;
+}
+
+.barcode-line.thin {
+    width: 2px;
+}
+
+.address {
+    text-align: center;
+    color: black;
+}
+
+.address h4 {
+    margin: 0;
+    text-decoration: underline;
+    font-size: 18px;
+}
+
+@media (max-width: 500px) {
+    .card {
+        width: 90%;
+        height: auto;
+    }
+
+    .details-container h2 {
+        font-size: 22px;
+    }
+
+    .details-container p {
+        font-size: 14px;
+    }
+}
