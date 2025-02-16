@@ -1,201 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premium 3D Aadhar Card</title>
-    <style>
-        body {
-            background: black;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
-
-        .card-container {
-            perspective: 1200px;
-        }
-
-        .card {
-            width: 500px;
-            height: 320px;
-            transition: transform 0.8s;
-            transform-style: preserve-3d;
-            position: relative;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
-            border-radius: 15px;
-            cursor: pointer;
-        }
-
-        .card:hover {
-            transform: rotateY(180deg);
-        }
-
-        .card-front,
-        .card-back {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            backface-visibility: hidden;
-            border-radius: 15px;
-            overflow: hidden;
-            background: white;
-            box-sizing: border-box;
-            padding: 20px;
-            color: black;
-        }
-
-        .card-front {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .card-back {
-            transform: rotateY(180deg);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .orange {
-            color: #FF9933;
-        }
-
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            width: 50px;
-            height: 50px;
-        }
-
-        .details-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-        }
-
-        .text-details {
-            flex: 2;
-            max-width: 70%;
-            font-size: 14px;
-            line-height: 1.4;
-        }
-
-        .photo-container {
-            flex: 1;
-            text-align: right;
-        }
-
-        .photo {
-            width: 100px;
-            height: 120px;
-            object-fit: cover;
-            border: 2px solid #000;
-            border-radius: 4px;
-        }
-
-        .barcode {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            margin-top: 20px;
-        }
-
-        .barcode-line {
-            width: 80%;
-            height: 5px;
-            background: black;
-            margin: 2px 0;
-        }
-
-        .barcode-line.thin {
-            width: 50%;
-        }
-
-        .address {
-            text-align: center;
-            margin-top: 10px;
-            font-size: 14px;
-        }
-    </style>
+    <title>Galaxy Aadhaar Card</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
+    <div class="background">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+        <div class="nebula"></div>
+    </div>
+    
     <div class="card-container">
+        <div class="premium-badge">Government of India</div>
         <div class="card">
-            <!-- Front Side of the Card -->
+            <!-- Front Side -->
             <div class="card-front">
+                <div class="shine"></div>
                 <div class="header">
                     <img class="logo" src="./images/india.jpg" alt="India Logo">
-                    <div>
+                    <div class="title-section">
                         <h2 class="orange">भारत सरकार</h2>
                         <h3>Government of India</h3>
                     </div>
                     <img class="logo" src="./images/uidiai.png" alt="UIDAI Logo">
                 </div>
+                
+                <div class="name-highlight">
+                    <div class="name-section">
+                        <label class="name-label">NAME / नाम</label>
+                        <h2 id="name" class="name-text">Rahul Kumar</h2>
+                        <div class="name-underline"></div>
+                    </div>
+                </div>
+
                 <div class="details-container">
                     <div class="text-details">
-                        <h2 id="name">Loading...</h2>
-                        <p><strong class="orange">जन्म तिथि</strong> / DOB: <span id="dob">Loading...</span>
-                        </p>
-                        <p><strong class="orange">लिंग</strong> / Gender: <span id="gender">Loading...</span></p>
-                        <p><strong class="orange">राज्य</strong> / State: <span id="state">Loading...</span>
-                        </p>
-                        <p><strong class="orange">आधार</strong> / Aadhaar: <span id="aadharnumber">Loading...</span></p>
+                        <div class="detail-row">
+                            <strong>जन्म तिथि / DOB:</strong>
+                            <span id="dob">15/08/1990</span>
+                        </div>
+                        <div class="detail-row">
+                            <strong>लिंग / Gender:</strong>
+                            <span id="gender">Male</span>
+                        </div>
+                        <div class="detail-row">
+                            <strong>राज्य / State:</strong>
+                            <span id="state">Delhi</span>
+                        </div>
+                        <div class="detail-row aadhaar-number">
+                            <strong>आधार / Aadhaar:</strong>
+                            <span id="aadharnumber">1234 5678 9012</span>
+                        </div>
                     </div>
-                    <div class="photo-container">
+                    <div class="photo-frame">
                         <img class="photo" src="./images/aadhar-photo.jpg" alt="Aadhaar Photo">
                     </div>
                 </div>
             </div>
 
-            <!-- Back Side of the Card -->
+            <!-- Back Side -->
             <div class="card-back">
-                <div class="barcode">
-                    <div class="barcode-line"></div>
-                    <div class="barcode-line thin"></div>
-                    <div class="barcode-line"></div>
-                    <div class="barcode-line thin"></div>
-                    <div class="barcode-line"></div>
+                <div class="shine"></div>
+                <div class="barcode-section">
+                    <img class="barcode-img" src="./images/barcode.jpg" alt="Barcode">
                 </div>
                 <div class="address">
-                    <h4 class="orange">पता</h4>
+                    <h4 class="orange">पता / Address</h4>
                     <p>123, Green Park Colony, Sector 15,</p>
                     <p>New Delhi, Delhi - 110001</p>
                 </div>
             </div>
         </div>
     </div>
-    <script>
-        // Fetching Aadhaar details using GET request
-        fetch('http://localhost:7000/')
-            .then(response => response.json())
-            .then(data => {
-                // Check if the array has data
-                if (data.length > 0) {
-                    const user = data[0]; // Get the first user
-                    document.getElementById('name').innerText = user.name;
-                    document.getElementById('dob').innerText = user.dob;
-                    document.getElementById('gender').innerText = user.gender;
-                    document.getElementById('state').innerText = user.state;
-                    document.getElementById('aadharnumber').innerText = user.aadharnumber;
-                } else {
-                    console.log('No data found');
-                }
-            })
-            .catch(error => console.error('Error fetching Aadhaar data:', error));
-    </script>
+    <script src="script.js"></script>
 </body>
-
 </html>
